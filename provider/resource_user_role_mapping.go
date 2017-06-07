@@ -48,7 +48,7 @@ func resourceUserRoleMappingRead(d *schema.ResourceData, m interface{}) error {
 		return err
 	}
 
-	role, err := c.FindRoleForUser(roles, d.Id())
+	role, err := keycloak.FindRoleForUser(roles, d.Id())
 	if err != nil {
 		return err
 	}
