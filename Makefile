@@ -1,14 +1,12 @@
 .DEFAULT_GOAL := test
 
+export GO111MODULE=on
+
 clean:
 	@echo "Clean ./bin"
 	rm -rf bin pkg *.out
 
-get: clean
-	@echo "Get..."
-	go get github.com/hashicorp/terraform/plugin
-
-build: get
+build: clean
 	@echo "Build..."
 	go build -o bin/terraform-provider-keycloak -tags netgo
 
