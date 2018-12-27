@@ -5,7 +5,8 @@ go:
 # Force-enable Go modules. This will be unnecessary when Go 1.12 lands.
 env:
   - GO111MODULE=on
-install: true
+install:
+  - go get
 script:
   - (! go fmt ./... 2>&1 | read) || (echo "Code is not properly formatted, remember to use gofmt on all new changes." && exit 1)
   - go vet ./...
